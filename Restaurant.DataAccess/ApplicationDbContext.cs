@@ -1,8 +1,8 @@
 ﻿
-using AbbyWeb.Model;
 using Microsoft.EntityFrameworkCore;
+using Restaurant.Models;
 
-namespace AbbyWeb.Data;
+namespace Restaurant.DataAccess.Data;
 public class ApplicationDbContext : DbContext
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
