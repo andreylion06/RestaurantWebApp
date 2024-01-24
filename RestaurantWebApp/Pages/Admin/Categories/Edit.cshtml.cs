@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Restaurant.DataAccess.Data;
+using Restaurant.DataAccess.Repository.IRepository;
 using Restaurant.Models;
 
 namespace AbbyWeb.Pages.Admin.Categories;
@@ -12,23 +13,20 @@ namespace AbbyWeb.Pages.Admin.Categories;
 [BindProperties]
 public class EditModel : PageModel
 {
-    private readonly ApplicationDbContext _db;
-    
-    public Category Category { get; set; }
+	private readonly ICategoryRepository _dbCategory;
 
-    public EditModel(ApplicationDbContext db)
-    {
-        _db = db;
-    }
-    public void OnGet(int id)
-    {
-        Category = _db.Category.Find(id);
-        //Category = _db.Category.FirstOrDefault(u=>u.Id==id);
-        //Category = _db.Category.SingleOrDefault(u=>u.Id==id);
-        //Category = _db.Category.Where(u => u.Id == id).FirstOrDefault();
-    }
+	public Category Category { get; set; }
 
-    public async Task<IActionResult> OnPost()
+	public EditModel(ICategoryRepository dbCategory)
+	{
+		_dbCategory = dbCategory;
+	}
+	public void OnGet(int id)
+	{
+		Category = _dbCategory.GetFirstOrDefault(cat => cat.Id == id);
+	}
+
+	public async Task<IActionResult> OnPost()
     {
         if (Category.Name == Category.DisplayOrder.ToString())
         {
@@ -36,8 +34,8 @@ public class EditModel : PageModel
         }
         if (ModelState.IsValid)
         {
-            _db.Category.Update(Category);
-            await _db.SaveChangesAsync();
+			_dbCategory.Update(Category);
+            _dbCategory.Save();
             TempData["success"] = "Category updated successfully";
             return RedirectToPage("Index");
         }
