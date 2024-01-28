@@ -6,20 +6,23 @@ using Restaurant.DataAccess.Data;
 using Restaurant.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Restaurant.DataAccess.Repository.IRepository;
 
 namespace AbbyWeb.Pages.Admin.FoodTypes;
 
 public class IndexModel : PageModel
 {
-    private readonly ApplicationDbContext _db;
-    public IEnumerable<FoodType> FoodTypes { get; set; }
-    public IndexModel(ApplicationDbContext db)
-    {
-        _db=db;
-    }
+	private readonly IUnitOfWork _unitOfWork;
+
+	public IEnumerable<FoodType> FoodTypes { get; set; }
+
+	public IndexModel(IUnitOfWork unitOfWork)
+	{
+		_unitOfWork = unitOfWork;
+	}
 
     public void OnGet()
     {
-		FoodTypes = _db.FoodType;
+		FoodTypes = _unitOfWork.FoodType.GetAll();
     }
 }

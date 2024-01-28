@@ -1,26 +1,22 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Restaurant.DataAccess.Data;
-using Restaurant.Models;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Restaurant.DataAccess.Repository.IRepository;
+using Restaurant.Models;
 
 namespace AbbyWeb.Pages.Admin.Categories;
 
 public class IndexModel : PageModel
 {
-	private readonly ICategoryRepository _dbCategory;
+	private readonly IUnitOfWork _unitOfWork;
+
 	public IEnumerable<Category> Categories { get; set; }
-    public IndexModel(ICategoryRepository dbCategory)
+
+    public IndexModel(IUnitOfWork unitOfWork)
     {
-		_dbCategory = dbCategory;
+		_unitOfWork = unitOfWork;
     }
 
     public void OnGet()
     {
-        Categories = _dbCategory.GetAll();
+        Categories = _unitOfWork.Category.GetAll();
     }
 }

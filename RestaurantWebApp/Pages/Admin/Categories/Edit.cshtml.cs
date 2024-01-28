@@ -13,17 +13,18 @@ namespace AbbyWeb.Pages.Admin.Categories;
 [BindProperties]
 public class EditModel : PageModel
 {
-	private readonly ICategoryRepository _dbCategory;
+	private readonly IUnitOfWork _unitOfWork;
 
 	public Category Category { get; set; }
 
-	public EditModel(ICategoryRepository dbCategory)
+	public EditModel(IUnitOfWork unitOfWork)
 	{
-		_dbCategory = dbCategory;
+		_unitOfWork = unitOfWork;
 	}
+
 	public void OnGet(int id)
 	{
-		Category = _dbCategory.GetFirstOrDefault(cat => cat.Id == id);
+		Category = _unitOfWork.Category.GetFirstOrDefault(cat => cat.Id == id);
 	}
 
 	public async Task<IActionResult> OnPost()
@@ -34,8 +35,8 @@ public class EditModel : PageModel
         }
         if (ModelState.IsValid)
         {
-			_dbCategory.Update(Category);
-            _dbCategory.Save();
+			_unitOfWork.Category.Update(Category);
+            _unitOfWork.Save();
             TempData["success"] = "Category updated successfully";
             return RedirectToPage("Index");
         }

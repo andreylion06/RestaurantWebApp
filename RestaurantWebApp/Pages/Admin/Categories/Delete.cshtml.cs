@@ -13,26 +13,27 @@ namespace AbbyWeb.Pages.Admin.Categories;
 [BindProperties]
 public class DeleteModel : PageModel
 {
-	private readonly ICategoryRepository _dbCategory;
+	private readonly IUnitOfWork _unitOfWork;
 
 	public Category Category { get; set; }
 
-    public DeleteModel(ICategoryRepository dbCategory)
+	public DeleteModel(IUnitOfWork unitOfWork)
+	{
+		_unitOfWork = unitOfWork;
+	}
+
+	public void OnGet(int id)
     {
-		_dbCategory = dbCategory;
-    }
-    public void OnGet(int id)
-    {
-        Category = _dbCategory.GetFirstOrDefault(cat => cat.Id == id);
+        Category = _unitOfWork.Category.GetFirstOrDefault(cat => cat.Id == id);
     }
 
     public async Task<IActionResult> OnPost()
     {
-            var categoryFromDb = _dbCategory.GetFirstOrDefault(cat => cat.Id == Category.Id);
+            var categoryFromDb = _unitOfWork.Category.GetFirstOrDefault(cat => cat.Id == Category.Id);
             if (categoryFromDb != null)
             {
-			_dbCategory.Remove(categoryFromDb);
-            _dbCategory.Save();
+			_unitOfWork.Category.Remove(categoryFromDb);
+            _unitOfWork.Save();
             TempData["success"] = "Category deleted successfully";
             return RedirectToPage("Index");
 
