@@ -8,7 +8,7 @@ using Restaurant.DataAccess.Data;
 using Restaurant.DataAccess.Repository.IRepository;
 using Restaurant.Models;
 
-namespace AbbyWeb.Pages.Admin.FoodTypes;
+namespace RestaurantWebApp.Pages.Admin.FoodTypes;
 
 [BindProperties]
 public class EditModel : PageModel
@@ -27,15 +27,15 @@ public class EditModel : PageModel
         FoodType = _unitOfWork.FoodType.GetFirstOrDefault(u => u.Id == id);
     }
 
-    public async Task<IActionResult> OnPost()
-    {
-        if (ModelState.IsValid)
-        {
+	public IActionResult OnPost()
+	{
+		if (ModelState.IsValid)
+		{
 			_unitOfWork.FoodType.Update(FoodType);
-            _unitOfWork.Save();
-            TempData["success"] = "Food Type updated successfully";
-            return RedirectToPage("Index");
-        }
-        return Page();
-    }
+			_unitOfWork.Save();
+			TempData["success"] = "Food Type updated successfully";
+			return RedirectToPage("Index");
+		}
+		return Page();
+	}
 }

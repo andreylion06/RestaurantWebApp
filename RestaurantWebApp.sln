@@ -5,11 +5,11 @@ VisualStudioVersion = 17.9.34511.98
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantWebApp", "RestaurantWebApp\RestaurantWebApp.csproj", "{C09FDD60-5577-4602-AA28-957F79D320C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant.DataAccess", "Restaurant.DataAccess\Restaurant.DataAccess.csproj", "{11FD5F71-4E83-4F14-AB4E-19DD9F4F2707}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant.DataAccess", "Restaurant.DataAccess\Restaurant.DataAccess.csproj", "{11FD5F71-4E83-4F14-AB4E-19DD9F4F2707}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant.Models", "Restaurant.Models\Restaurant.Models.csproj", "{844220AD-2248-4A33-8FBB-3475D9F3A62C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant.Models", "Restaurant.Models\Restaurant.Models.csproj", "{844220AD-2248-4A33-8FBB-3475D9F3A62C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant.Utility", "Restaurant.Utility\Restaurant.Utility.csproj", "{2571F505-07E8-44F1-9F7C-5848A83F03B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant.Utility", "Restaurant.Utility\Restaurant.Utility.csproj", "{2571F505-07E8-44F1-9F7C-5848A83F03B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

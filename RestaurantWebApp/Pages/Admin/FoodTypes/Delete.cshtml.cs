@@ -8,7 +8,7 @@ using Restaurant.DataAccess.Data;
 using Restaurant.DataAccess.Repository.IRepository;
 using Restaurant.Models;
 
-namespace AbbyWeb.Pages.Admin.FoodTypes;
+namespace RestaurantWebApp.Pages.Admin.FoodTypes;
 
 [BindProperties]
 public class DeleteModel : PageModel

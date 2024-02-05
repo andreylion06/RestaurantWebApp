@@ -8,7 +8,7 @@ using Restaurant.DataAccess.Data;
 using Restaurant.DataAccess.Repository.IRepository;
 using Restaurant.Models;
 
-namespace AbbyWeb.Pages.Admin.Categories;
+namespace RestaurantWebApp.Pages.Admin.Categories;
 
 [BindProperties]
 public class EditModel : PageModel

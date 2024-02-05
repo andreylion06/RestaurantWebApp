@@ -9,6 +9,6 @@ namespace Restaurant.DataAccess.Repository.IRepository
 {
 	public interface IFoodTypeRepository : IRepository<FoodType>
 	{
-		void Update(FoodType foodType);
+		void Update(FoodType obj);
 	}
 }

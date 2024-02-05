@@ -24,10 +24,10 @@ namespace Restaurant.DataAccess.Repository
 			_db.SaveChanges();
 		}
 
-		public void Update(FoodType foodType)
+		public void Update(FoodType obj)
 		{
-			var objFromDb = _db.FoodType.FirstOrDefault(u => u.Id == foodType.Id);
-			objFromDb.Name = foodType.Name;
+			var objFromDb = _db.FoodType.FirstOrDefault(u => u.Id == obj.Id);
+			objFromDb.Name = obj.Name;
 		}
 	}
 }

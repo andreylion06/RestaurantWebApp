@@ -9,7 +9,7 @@ using Restaurant.DataAccess.Repository;
 using Restaurant.DataAccess.Repository.IRepository;
 using Restaurant.Models;
 
-namespace AbbyWeb.Pages.Admin.FoodTypes;
+namespace RestaurantWebApp.Pages.Admin.FoodTypes;
 
 [BindProperties]
 public class CreateModel : PageModel

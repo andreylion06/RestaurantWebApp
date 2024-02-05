@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Restaurant.DataAccess.Repository.IRepository;
 
-namespace AbbyWeb.Pages.Admin.FoodTypes;
+namespace RestaurantWebApp.Pages.Admin.FoodTypes;
 
 public class IndexModel : PageModel
 {

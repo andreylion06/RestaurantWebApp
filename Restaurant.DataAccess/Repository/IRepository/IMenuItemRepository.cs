@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Restaurant.DataAccess.Repository.IRepository
 {
-	public interface ICategoryRepository : IRepository<Category>
+	public interface IMenuItemRepository : IRepository<MenuItem>
 	{
-		void Update(Category obj);
+		void Update(MenuItem obj);
 	}
 }
