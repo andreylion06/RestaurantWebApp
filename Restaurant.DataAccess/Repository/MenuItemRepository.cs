@@ -12,9 +12,9 @@ namespace Restaurant.DataAccess.Repository
 {
 	public class MenuItemRepository : Repository<MenuItem>, IMenuItemRepository
 	{
-		private readonly ApplicationDbContext _db;
+		private readonly MyApplicationDbContext _db;
 
-		public MenuItemRepository(ApplicationDbContext db) : base(db)
+		public MenuItemRepository(MyApplicationDbContext db) : base(db)
 		{
 			_db = db;
 		}

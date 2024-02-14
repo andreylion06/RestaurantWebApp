@@ -26,7 +26,7 @@ public class CreateModel : PageModel
     {
     }
 
-    public async Task<IActionResult> OnPost()
+    public IActionResult OnPost()
     {
         if (Category.Name == Category.DisplayOrder.ToString())
         {

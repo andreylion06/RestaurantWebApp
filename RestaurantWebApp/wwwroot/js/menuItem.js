@@ -46,7 +46,6 @@ function Delete(url) {
                 success: function (data) {
                     if (data.success) {
                         table.ajax.reload();
-                        console.log('succ');
                         toastr.success(data.message);
                     }
                     else {

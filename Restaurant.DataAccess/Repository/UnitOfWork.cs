@@ -10,8 +10,8 @@ namespace Restaurant.DataAccess.Repository
 {
 	public class UnitOfWork : IUnitOfWork
 	{
-		private readonly ApplicationDbContext _db;
-		public UnitOfWork(ApplicationDbContext db)
+		private readonly MyApplicationDbContext _db;
+		public UnitOfWork(MyApplicationDbContext db)
 		{
 			_db = db;
 

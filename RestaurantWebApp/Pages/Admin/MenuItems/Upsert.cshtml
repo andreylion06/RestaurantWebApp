@@ -57,7 +57,7 @@
         </div>
         @if(Model.MenuItem.Id != 0)
         {
-            <button type="submit" class="btn btn-primary" style="width: 150px;">Update</button>
+            <button type="submit" class="btn btn-primary" style="width: 150px;">@(Model.MenuItem.Id != 0 ? "Update" : "Create")</button>
         }
         else
         {

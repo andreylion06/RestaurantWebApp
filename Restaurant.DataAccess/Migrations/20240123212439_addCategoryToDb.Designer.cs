@@ -10,7 +10,7 @@ using Restaurant.DataAccess.Data;
 
 namespace Restaurant.DataAccess.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(MyApplicationDbContext))]
     [Migration("20240123212439_addCategoryToDb")]
     partial class addCategoryToDb
     {
