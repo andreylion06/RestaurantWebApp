@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Restaurant.DataAccess.Repository.IRepository;
@@ -6,6 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RestaurantWebApp.Pages.Customer.Home
 {
+    [Authorize]
     public class DetailsModel : PageModel
     {
         private readonly IUnitOfWork _unitOfWork;

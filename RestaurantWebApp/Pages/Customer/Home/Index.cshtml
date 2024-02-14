@@ -10,7 +10,7 @@
 				@foreach (var menuItem in Model.MenuItemList.Where(u => u.CategoryId == category.Id))
 				{
 					<div class="col-lg-4 col-md-6 pb-4 filter">
-						<div class="card bg-white rounded shadow-sm" style="border:1px solid #222">
+						<div class="card bg-white rounded shadow-sm menu-item-card" style="border:1px solid #222">
 						<div class="card-body pb-1 row">
 							<div class="col-8 h5">@menuItem.Name</div>
 							<div class="col-4 text-end"><span class="text-info h4">$@menuItem.Price</span></div>
@@ -37,3 +37,9 @@
 		</div>
 	}
 </div>
+
+<style>
+	.menu-item-card {
+		min-height: 600px;
+	}
+</style>

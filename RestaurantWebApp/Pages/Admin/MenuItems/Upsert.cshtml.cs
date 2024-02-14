@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -9,10 +10,12 @@ using Restaurant.DataAccess.Data;
 using Restaurant.DataAccess.Repository;
 using Restaurant.DataAccess.Repository.IRepository;
 using Restaurant.Models;
+using Restaurant.Utility;
 
 namespace RestaurantWebApp.Pages.Admin.MenuItems;
 
 [BindProperties]
+[Authorize(Roles = SD.ManagerRole)]
 public class UpsertModel : PageModel
 {
 	private readonly IUnitOfWork _unitOfWork;

@@ -7,9 +7,12 @@ using Restaurant.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Restaurant.DataAccess.Repository.IRepository;
+using Microsoft.AspNetCore.Authorization;
+using Restaurant.Utility;
 
 namespace RestaurantWebApp.Pages.Admin.FoodTypes;
 
+[Authorize(Roles = SD.ManagerRole)]
 public class IndexModel : PageModel
 {
 	private readonly IUnitOfWork _unitOfWork;
